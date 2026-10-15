@@ -2,364 +2,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arwa Salah | Data Analyst Portfolio</title>
-
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Arwa Salah — Data Analyst specializing in Power BI, SQL, Excel, data quality, and business intelligence reporting.">
+  <title>Arwa Salah | Data Analyst & BI</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <a href="#welcome-section" class="logo">Arwa<span>.</span></a>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">ARWA<span>.</span></a>
+      <ul class="nav-links">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="about.html">About & Skills</a></li>
+        <li><a class="nav-cta" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-        <div class="nav-links">
-            <a href="#welcome-section">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Welcome Section -->
-    <section id="welcome-section">
-        <div class="hero-content">
-            <p class="eyebrow">DATA ANALYST · BUSINESS INTELLIGENCE</p>
-
-            <h1>
-                Hi, I'm Arwa.<br>
-                I turn data into
-                <span class="highlight">insights.</span>
-            </h1>
-
-            <p class="hero-description">
-                I'm a Data Analyst with around 4 years of experience
-                transforming complex data into meaningful insights,
-                interactive dashboards, and smarter business decisions.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    Explore My Work ↗
-                </a>
-
-                <a href="#contact" class="btn btn-secondary">
-                    Get in Touch
-                </a>
-            </div>
-
-            <div class="hero-tools">
-                <span>Power BI</span>
-                <span>SQL</span>
-                <span>Excel</span>
-                <span>Power Query</span>
-            </div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-            <div class="visual-card">
-                <div class="card-top">
-                    <span class="status-dot"></span>
-                    <span>DATA OVERVIEW</span>
-                </div>
-
-                <div class="chart-heading">Business Performance</div>
-                <div class="chart-subtitle">Illustrative dashboard preview</div>
-
-                <div class="chart-bars">
-                    <div class="bar" style="height: 38%"></div>
-                    <div class="bar" style="height: 55%"></div>
-                    <div class="bar" style="height: 45%"></div>
-                    <div class="bar" style="height: 76%"></div>
-                    <div class="bar" style="height: 62%"></div>
-                    <div class="bar active" style="height: 92%"></div>
-                    <div class="bar" style="height: 72%"></div>
-                </div>
-
-                <div class="chart-labels">
-                    <span>Jan</span>
-                    <span>Feb</span>
-                    <span>Mar</span>
-                    <span>Apr</span>
-                    <span>May</span>
-                    <span>Jun</span>
-                    <span>Jul</span>
-                </div>
-
-                <div class="visual-footer">
-                    <span>DATA → INSIGHTS</span>
-                    <span>↗</span>
-                </div>
-            </div>
-
-            <div class="floating-tag tag-one">SQL + BI</div>
-            <div class="floating-tag tag-two">Insights matter.</div>
-        </div>
-
-        <a href="#about" class="scroll-indicator">
-            <span>SCROLL TO EXPLORE</span>
-            <span>↓</span>
-        </a>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="section-heading">
-            <p class="eyebrow">A LITTLE ABOUT ME</p>
-            <h2>Curious about data.<br>Focused on <span>impact.</span></h2>
-        </div>
-
-        <div class="about-content">
-            <p>
-                I enjoy working with data to uncover patterns, improve
-                reporting processes, and help teams make informed decisions.
-                My experience includes building interactive Power BI
-                dashboards, transforming data with Power Query, writing SQL
-                queries, and developing reports for operational and business
-                stakeholders.
-            </p>
-
-            <p>
-                I focus on making data accurate, accessible, and useful —
-                because a great report should do more than show numbers.
-                It should help people understand what to do next.
-            </p>
-
-            <div class="about-stats">
-                <div class="stat">
-                    <strong>~4</strong>
-                    <span>Years of Experience</span>
-                </div>
-
-                <div class="stat">
-                    <strong>BI</strong>
-                    <span>Reporting & Dashboards</span>
-                </div>
-
-                <div class="stat">
-                    <strong>SQL</strong>
-                    <span>Data Exploration</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
-        <div class="section-heading">
-            <p class="eyebrow">SELECTED WORK</p>
-            <h2>Projects that turn<br>data into <span>decisions.</span></h2>
-            <p class="section-description">
-                A selection of analytics and reporting projects inspired
-                by real business problems.
-            </p>
-        </div>
-
-        <div class="projects-grid">
-
-            <!-- Project 1 -->
-            <article class="project-tile">
-                <div class="project-visual visual-purple">
-                    <span class="project-number">01 / POWER BI</span>
-                    <div class="mini-dashboard">
-                        <div class="mini-kpis">
-                            <div><small>Total Tasks</small><strong>1,248</strong></div>
-                            <div><small>Completion</small><strong>86%</strong></div>
-                        </div>
-                        <div class="mini-chart">
-                            <i style="height: 45%"></i>
-                            <i style="height: 70%"></i>
-                            <i style="height: 55%"></i>
-                            <i style="height: 85%"></i>
-                            <i style="height: 62%"></i>
-                            <i style="height: 95%"></i>
-                        </div>
-                    </div>
-                    <span class="visual-caption">Illustrative preview</span>
-                </div>
-
-                <div class="project-info">
-                    <p class="project-category">BUSINESS INTELLIGENCE</p>
-                    <h3>Operations Performance Dashboard</h3>
-                    <p>
-                        An interactive reporting concept for monitoring task
-                        progress, team capacity, workload allocation, and
-                        operational performance.
-                    </p>
-                    <div class="project-tags">
-                        <span>Power BI</span>
-                        <span>Power Query</span>
-                        <span>Data Modeling</span>
-                    </div>
-                    <a href="#contact" class="project-link">
-                        Discuss this project ↗
-                    </a>
-                </div>
-            </article>
-
-            <!-- Project 2 -->
-            <article class="project-tile">
-                <div class="project-visual visual-blue">
-                    <span class="project-number">02 / SQL</span>
-                    <div class="code-preview">
-                        <p><span>SELECT</span> department,</p>
-                        <p class="indent">SUM(hours) AS total_hours</p>
-                        <p><span>FROM</span> project_tasks</p>
-                        <p><span>GROUP BY</span> department;</p>
-                    </div>
-                    <div class="code-result">
-                        <span>DATA QUERY</span>
-                        <span>✓ RESULTS READY</span>
-                    </div>
-                </div>
-
-                <div class="project-info">
-                    <p class="project-category">DATA ANALYSIS</p>
-                    <h3>Project Time & Resource Analysis</h3>
-                    <p>
-                        A reporting concept for analyzing logged work hours,
-                        identifying workload patterns, and comparing time
-                        spent across project activities.
-                    </p>
-                    <div class="project-tags">
-                        <span>SQL</span>
-                        <span>Excel</span>
-                        <span>Reporting</span>
-                    </div>
-                    <a href="#contact" class="project-link">
-                        Discuss this project ↗
-                    </a>
-                </div>
-            </article>
-
-            <!-- Project 3 -->
-            <article class="project-tile">
-                <div class="project-visual visual-green">
-                    <span class="project-number">03 / EXCEL</span>
-                    <div class="spreadsheet">
-                        <div class="sheet-header">
-                            <span>Period</span>
-                            <span>Income</span>
-                            <span>Expenses</span>
-                        </div>
-                        <div><span>January</span><span>24,500</span><span>8,200</span></div>
-                        <div><span>February</span><span>28,000</span><span>9,100</span></div>
-                        <div><span>March</span><span>31,200</span><span>7,800</span></div>
-                        <div class="sheet-total">
-                            <span>Total</span><span>83,700</span><span>25,100</span>
-                        </div>
-                    </div>
-                    <span class="visual-caption">Illustrative sample data</span>
-                </div>
-
-                <div class="project-info">
-                    <p class="project-category">FINANCIAL REPORTING</p>
-                    <h3>Financial & Expense Reporting</h3>
-                    <p>
-                        A structured reporting concept for consolidating
-                        financial records, reviewing expenses, and tracking
-                        monthly figures to support financial visibility.
-                    </p>
-                    <div class="project-tags">
-                        <span>Excel</span>
-                        <span>Data Cleaning</span>
-                        <span>KPI Reporting</span>
-                    </div>
-                    <a href="#contact" class="project-link">
-                        Discuss this project ↗
-                    </a>
-                </div>
-            </article>
-
-        </div>
-
-        <p class="projects-note">
-            Note: The dashboard previews and figures above are illustrative
-            design examples, not actual client results.
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Data Analytics · Business Intelligence</p>
+        <h1>Turning data into <span>meaningful decisions.</span></h1>
+        <p class="hero-copy">
+          I'm Arwa Salah, a Data Analyst with around four years of
+          experience transforming operational data into clear reports,
+          Power BI dashboards, and actionable business insights.
+          I work with Power BI, SQL, Excel, and Power Query to improve
+          reporting, data quality, and operational visibility.
         </p>
-    </section>
+        <div class="hero-actions">
+          <a class="button button-primary" href="projects.html">Explore My Work ↗</a>
+          <a class="button button-outline" href="contact.html">Get in Touch</a>
+        </div>
+      </div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section skills-section">
+      <div class="profile-frame">
+        <img
+          src="images/profile.jpg"
+          alt="Arwa Salah"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        >
+        <div class="profile-placeholder" style="display:none;">
+          Add your photo to<br>
+          <strong>images/profile.jpg</strong>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
         <div class="section-heading">
-            <p class="eyebrow">MY TOOLKIT</p>
-            <h2>Tools I use to make<br>data <span>work for you.</span></h2>
+          <p class="eyebrow">Professional Snapshot</p>
+          <h2>Data analysis with a focus on business impact.</h2>
+          <p>
+            My experience combines dashboard development, operational
+            reporting, data validation, and collaboration with stakeholders
+            to make business data more reliable and useful.
+          </p>
         </div>
 
-        <div class="skills-grid">
-            <div class="skill-card">
-                <span class="skill-icon">▦</span>
-                <h3>Power BI</h3>
-                <p>Interactive dashboards, data modeling, DAX, Power BI Service, scheduled refreshes, and reporting.</p>
-            </div>
-
-            <div class="skill-card">
-                <span class="skill-icon">⌘</span>
-                <h3>SQL</h3>
-                <p>Querying, filtering, joining tables, aggregations, and extracting business data.</p>
-            </div>
-
-            <div class="skill-card">
-                <span class="skill-icon">▤</span>
-                <h3>Excel</h3>
-                <p>Data analysis, formulas, PivotTables, reporting, and structured data management.</p>
-            </div>
-
-            <div class="skill-card">
-                <span class="skill-icon">↗</span>
-                <h3>Power Query</h3>
-                <p>Data transformation, cleaning, combining sources, and automating repeatable preparation steps.</p>
-            </div>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <strong>~4 Years</strong>
+            <p>Professional data analysis experience</p>
+          </article>
+          <article class="stat-card">
+            <strong>40%</strong>
+            <p>Reported reduction in manual reporting effort</p>
+          </article>
+          <article class="stat-card">
+            <strong>Power BI</strong>
+            <p>Dashboards, KPIs, reporting, and data visualization</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <p class="eyebrow">LET'S CONNECT</p>
-        <h2>Have a data challenge?<br>Let's talk.</h2>
-        <p>
-            I'm interested in Data Analyst, Business Intelligence,
-            and Power BI opportunities.
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Featured Work</p>
+          <h2>From operational data to actionable insights.</h2>
+          <p>
+            Examples of reporting and analytics work based on my professional
+            experience. Project descriptions are summarized for this portfolio.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <p class="card-label">Business Intelligence</p>
+            <h3>Operational Performance Dashboard</h3>
+            <p>
+              Developed Power BI reporting to monitor tasks, workload,
+              resource allocation, and project performance across teams.
+            </p>
+            <ul class="tags">
+              <li>Power BI</li><li>Power Query</li><li>KPIs</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <p class="card-label">Data Quality</p>
+            <h3>Time-Logging & Data Validation</h3>
+            <p>
+              Standardized time-logging practices and introduced recurring
+              reviews to improve data completeness and consistency.
+            </p>
+            <ul class="tags">
+              <li>Data Validation</li><li>Jira</li><li>Reporting</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <p class="card-label">Finance & Reporting</p>
+            <h3>Invoices & Expense Reporting</h3>
+            <p>
+              Prepared and reviewed monthly invoices and developed reporting
+              to improve visibility into company expenses.
+            </p>
+            <ul class="tags">
+              <li>Excel</li><li>Power BI</li><li>Financial Reporting</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <p class="card-label">Analytics</p>
+            <h3>Project Time & Resource Analysis</h3>
+            <p>
+              Analyzed project activity and time data to support management
+              reporting and improve visibility into resource utilization.
+            </p>
+            <ul class="tags">
+              <li>SQL</li><li>Power BI</li><li>Jira</li>
+            </ul>
+          </article>
+        </div>
+
+        <p style="margin-top:28px;">
+          <a class="button button-dark" href="projects.html">View Project Details ↗</a>
         </p>
-
-        <div class="contact-links">
-            <a href="mailto:your.email@example.com" class="btn btn-primary">
-                Email Me ↗
-            </a>
-
-            <a
-                id="profile-link"
-                href="https://github.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary"
-            >
-                GitHub Profile ↗
-            </a>
-
-            <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary"
-            >
-                LinkedIn ↗
-            </a>
-        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <a href="#welcome-section" class="logo">Arwa<span>.</span></a>
-        <p>Designed with purpose. Powered by data.</p>
-        <p>© 2026 Arwa Salah</p>
-    </footer>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Core Skills</p>
+          <h2>The tools behind the analysis.</h2>
+        </div>
+        <ul class="tags">
+          <li>Power BI</li>
+          <li>SQL</li>
+          <li>Excel</li>
+          <li>Power Query</li>
+          <li>DAX</li>
+          <li>Data Cleaning</li>
+          <li>Data Visualization</li>
+          <li>Dashboard Development</li>
+          <li>Reporting Automation</li>
+          <li>Data Quality</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Arwa Salah · Data Analyst & BI</p>
+      <div class="footer-links">
+        <a href="mailto:arwasalah111996@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/arwa-salah-63a6a9227/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="about.html">Skills</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
