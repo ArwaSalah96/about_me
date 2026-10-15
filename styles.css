@@ -81,7 +81,7 @@ img {
 }
 
 .brand span {
-  color: var(--purple);
+  color: var(--tan);
 }
 
 .nav-links {
@@ -106,13 +106,13 @@ img {
   bottom: -7px;
   width: 0;
   height: 2px;
-  background: var(--purple);
+  background: var(--tan);
   transition: width 0.25s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--purple-deep);
+  color: var(--cafe-noir);
 }
 
 .nav-links a:hover::after,
@@ -123,13 +123,13 @@ img {
 .nav-links .nav-cta {
   padding: 10px 19px;
   border-radius: 999px;
-  background: var(--purple-deep);
+  background: var(--cafe-noir);
   color: white;
   transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .nav-links .nav-cta:hover {
-  background: var(--purple);
+  background: var(--tan);
   transform: translateY(-2px);
 }
 
@@ -166,7 +166,7 @@ img {
 .eyebrow {
   display: inline-block;
   margin-bottom: 16px;
-  color: var(--purple-deep);
+  color: var(--cafe-noir);
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 2px;
@@ -185,7 +185,7 @@ img {
 }
 
 .hero h1 span {
-  color: var(--purple);
+  color: var(--tan);
 }
 
 .hero-copy {
@@ -238,7 +238,7 @@ img {
   align-content: center;
   padding: 25px;
   border-radius: 45% 45% 19px 19px;
-  background: var(--lavender-light);
+  background: var(--almond);
   color: var(--ink-soft);
   text-align: center;
   font-size: 0.9rem;
@@ -269,19 +269,19 @@ img {
 }
 
 .button-primary {
-  background: var(--purple-deep);
+  background: var(--cafe-noir);
   color: var(--white);
 }
 
 .button-primary:hover,
 .button-dark:hover {
-  background: var(--purple);
+  background: var(--tan);
 }
 
 .button-outline {
   border-color: rgba(88, 55, 120, 0.3);
   background: rgba(255, 255, 255, 0.6);
-  color: var(--purple-deep);
+  color: var(--cafe-noir);
 }
 
 .button-dark {
@@ -346,7 +346,7 @@ img {
 .stat-card strong {
   display: block;
   margin-bottom: 10px;
-  color: var(--purple-deep);
+  color: var(--cafe-noir);
   font-size: clamp(1.65rem, 3vw, 2.2rem);
   line-height: 1.3;
 }
@@ -385,7 +385,7 @@ img {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--purple), #c6a9d9, #d8bba8);
+  background: linear-gradient(90deg, var(--tan), #c6a9d9, #d8bba8);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -403,7 +403,7 @@ img {
 
 .card-label {
   margin-bottom: 13px;
-  color: var(--purple);
+  color: var(--tan);
   font-size: 0.73rem;
   font-weight: 800;
   letter-spacing: 1.5px;
@@ -442,8 +442,8 @@ img {
   padding: 6px 12px;
   border: 1px solid #e8ddef;
   border-radius: 999px;
-  background: var(--lavender-light);
-  color: var(--purple-deep);
+  background: var(--almond);
+  color: var(--cafe-noir);
   font-size: 0.79rem;
   font-weight: 600;
   transition: background 0.2s ease, transform 0.2s ease;
@@ -451,7 +451,7 @@ img {
 
 .tags li:hover {
   transform: translateY(-2px);
-  background: var(--lavender);
+  background: var(--cafe-au-lait);
 }
 
 /* INTERNAL PAGE HEADERS */
@@ -460,7 +460,7 @@ img {
   padding: 76px 0 55px;
   background:
     radial-gradient(ellipse at 85% 0%, rgba(220, 204, 235, 0.55), transparent 40%),
-    linear-gradient(120deg, var(--lavender-light), var(--cream) 75%);
+    linear-gradient(120deg, var(--almond), var(--cream) 75%);
   border-bottom: 1px solid var(--line);
 }
 
@@ -505,13 +505,13 @@ img {
   height: 13px;
   border: 4px solid var(--cream);
   border-radius: 50%;
-  background: var(--purple);
+  background: var(--tan);
   box-shadow: 0 0 0 2px #dfd0e9;
 }
 
 .timeline-date {
   margin-bottom: 9px;
-  color: var(--purple);
+  color: var(--tan);
   font-size: 0.79rem;
   font-weight: 800;
   letter-spacing: 0.8px;
@@ -615,12 +615,12 @@ img {
 }
 
 .contact-card a:not(.button) {
-  color: var(--purple);
+  color: var(--tan);
   font-weight: 600;
 }
 
 .contact-card a:not(.button):hover {
-  color: var(--purple-deep);
+  color: var(--cafe-noir);
   text-decoration: underline;
 }
 
