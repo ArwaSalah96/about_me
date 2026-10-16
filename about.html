@@ -1,140 +1,74 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About & Skills | Arwa Salah</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About | Arwa Salah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
 </head>
 <body>
-
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">ARWA<span>.</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a class="active" href="about.html">About & Skills</a></li>
-        <li><a class="nav-cta" href="contact.html">Contact</a></li>
-      </ul>
-    </div>
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark">AS</span><span>Arwa Salah<small>DATA ANALYST</small></span></a>
+  <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects & Skills</a>
+    <a href="experience.html">Experience & Education</a>
+    <a class="active" href="about.html">About</a>
+    <a class="nav-contact" href="contact.html">Contact <span>↗</span></a>
   </nav>
+</header>
 
-  <header class="page-header">
-    <div class="container page-heading">
-      <p class="eyebrow">About Me</p>
-      <h1>Analytical thinking meets business needs.</h1>
-      <p>
-        I enjoy making complex information easier to understand through
-        structured analysis, reliable data, and clear visual reporting.
-        My focus is on helping teams monitor performance, improve reporting
-        processes, and make better-informed decisions.
-      </p>
+<main class="page-wrap inner-page">
+<section class="page-heading reveal">
+  <p class="eyebrow">A LITTLE ABOUT ME</p>
+  <h1>Analytical by nature.<br><em>Curious by choice.</em></h1>
+  <p class="lead">I enjoy finding the story behind the numbers and making it easier for people to use data in their everyday decisions.</p>
+</section>
+
+<section class="about-layout reveal">
+  <div class="about-quote">
+    <span class="quote-mark">“</span>
+    <p>Good analysis is not just about what the numbers say. It's about making the next decision clearer.</p>
+    <span class="quote-line"></span>
+    <small>MY WORKING PHILOSOPHY</small>
+  </div>
+  <div class="about-copy">
+    <p>My background combines scientific research with practical data analysis and business intelligence. That mix shaped the way I work: I ask questions, check the quality of the information, look for patterns, and communicate findings in a way that is useful to the people who need them.</p>
+    <p>In my data analyst role, I worked with operational information from different platforms, built Power BI dashboards, supported reporting and invoicing, and helped teams improve data consistency and reporting routines.</p>
+    <p>I value thoughtful problem-solving, clear communication, and dashboards that answer real business questions instead of simply displaying numbers.</p>
+    <div class="value-list">
+      <div><span>01</span><b>Accuracy before assumptions</b></div>
+      <div><span>02</span><b>Clarity over complexity</b></div>
+      <div><span>03</span><b>Insights with a purpose</b></div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main class="content-section">
-    <div class="container">
-      <div class="skills-grid">
+<section class="about-bottom reveal">
+  <div>
+    <p class="eyebrow">WHAT I'M INTERESTED IN</p>
+    <h2>Turning messy data into <em>meaningful action.</em></h2>
+  </div>
+  <div class="interest-chips">
+    <span>Business Intelligence</span>
+    <span>Operational Analytics</span>
+    <span>Data Quality</span>
+    <span>Process Improvement</span>
+    <span>Dashboard Storytelling</span>
+  </div>
+</section>
+</main>
 
-        <section class="skill-panel">
-          <h3>Technical & Analytical Skills</h3>
-          <ul class="tags">
-            <li>Data Analysis</li>
-            <li>Data Visualization</li>
-            <li>Dashboard Development</li>
-            <li>Reporting</li>
-            <li>Data Extraction</li>
-            <li>Data Cleaning & Validation</li>
-            <li>Data Quality</li>
-            <li>Business Intelligence</li>
-            <li>Power Query</li>
-            <li>Data Modeling</li>
-            <li>DAX</li>
-            <li>SQL</li>
-            <li>Excel</li>
-          </ul>
-        </section>
-
-        <section class="skill-panel">
-          <h3>Soft Skills</h3>
-          <ul class="tags">
-            <li>Analytical Thinking</li>
-            <li>Problem Solving</li>
-            <li>Stakeholder Management</li>
-            <li>Requirements Gathering</li>
-            <li>Communication & Presentation</li>
-            <li>Attention to Detail</li>
-            <li>Cross-functional Collaboration</li>
-            <li>Time Management</li>
-            <li>Process Improvement</li>
-          </ul>
-        </section>
-
-        <section class="skill-panel">
-          <h3>Programming & Query Languages</h3>
-          <ul class="tags">
-            <li>SQL</li>
-            <li>DAX</li>
-            <li>M Language</li>
-            <li>Python (Pandas)</li>
-          </ul>
-        </section>
-
-        <section class="skill-panel">
-          <h3>BI & Analytics Tools</h3>
-          <ul class="tags">
-            <li>Power BI</li>
-            <li>Microsoft Excel</li>
-            <li>Tableau</li>
-          </ul>
-        </section>
-
-        <section class="skill-panel">
-          <h3>Database Management</h3>
-          <ul class="tags">
-            <li>Microsoft SQL Server</li>
-          </ul>
-        </section>
-
-        <section class="skill-panel">
-          <h3>Collaboration & Project Tools</h3>
-          <ul class="tags">
-            <li>Jira</li>
-            <li>Confluence</li>
-            <li>Microsoft Teams</li>
-            <li>Autodesk BIM360</li>
-            <li>Clockify</li>
-            <li>Activity Timeline</li>
-          </ul>
-        </section>
-
-        <section class="skill-panel">
-          <h3>Languages</h3>
-          <ul class="tags">
-            <li>Arabic — Native</li>
-            <li>English — Advanced</li>
-          </ul>
-          <p style="margin-top:18px;">
-            Comfortable communicating in English in written and spoken contexts.
-          </p>
-        </section>
-
-      </div>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>© 2026 Arwa Salah</p>
-      <div class="footer-links">
-        <a href="mailto:arwasalah111996@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/arwa-salah-63a6a9227/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-      </div>
-    </div>
-  </footer>
-
+<footer class="footer">
+  <span>© <span id="year"></span> Arwa Salah</span>
+  <span>Data Analyst · Power BI · SQL · Excel</span>
+  <a href="contact.html">Get in touch ↗</a>
+</footer>
 </body>
 </html>
