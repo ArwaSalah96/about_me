@@ -1,0 +1,793 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Brazilian E-Commerce Analytics Dashboard - SQL Server and Power BI project by Arwa Salah.">
+<title>Brazilian E-Commerce Analytics | Arwa Salah</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
+
+<style>
+.ecom-page {
+max-width:1120px;
+margin:0 auto;
+padding:55px 24px 90px;
+}
+
+.ecom-back {
+display:inline-flex;
+align-items:center;
+gap:8px;
+margin-bottom:35px;
+color:var(--text-muted,#777);
+text-decoration:none;
+font-size:14px;
+}
+
+.ecom-back:hover {
+color:var(--accent,#8d78a8);
+}
+
+.ecom-hero {
+margin-bottom:38px;
+}
+
+.ecom-hero h1 {
+max-width:950px;
+margin:12px 0 18px;
+font-family:'Playfair Display',serif;
+font-size:clamp(36px,6vw,60px);
+line-height:1.12;
+}
+
+.ecom-hero h1 em {
+color:var(--accent,#9b83b5);
+font-weight:600;
+}
+
+.ecom-intro {
+max-width:880px;
+font-size:17px;
+line-height:1.85;
+color:var(--text-muted,#777);
+}
+
+.ecom-tags {
+display:flex;
+flex-wrap:wrap;
+gap:9px;
+margin-top:24px;
+}
+
+.ecom-tags span {
+padding:8px 13px;
+border:1px solid var(--border,#e8e3eb);
+border-radius:30px;
+font-size:12px;
+}
+
+.ecom-section {
+margin-top:55px;
+}
+
+.ecom-section-heading {
+margin-bottom:20px;
+}
+
+.ecom-section-heading .eyebrow {
+margin-bottom:8px;
+}
+
+.ecom-section-heading h2 {
+font-family:'Playfair Display',serif;
+font-size:clamp(26px,4vw,36px);
+}
+
+.ecom-section-heading h2 em {
+color:var(--accent,#9b83b5);
+}
+
+.ecom-panel {
+padding:clamp(18px,3vw,30px);
+border:1px solid var(--border,#e8e3eb);
+border-radius:18px;
+background:var(--surface,rgba(255,255,255,.55));
+}
+
+.ecom-panel p {
+font-size:15px;
+line-height:1.9;
+color:var(--text-muted,#777);
+}
+
+.ecom-video {
+width:100%;
+display:block;
+border-radius:14px;
+background:#17151b;
+max-height:680px;
+}
+
+.ecom-report-frame {
+width:100%;
+height:680px;
+border:0;
+border-radius:14px;
+background:#f5f2f7;
+}
+
+.ecom-note {
+margin-top:16px;
+padding:15px 18px;
+border-left:3px solid var(--accent,#9b83b5);
+border-radius:5px 12px 12px 5px;
+background:rgba(155,131,181,.08);
+font-size:13px;
+line-height:1.8;
+color:var(--text-muted,#777);
+}
+
+.ecom-actions {
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+margin-top:18px;
+}
+
+.ecom-action {
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:12px 19px;
+border-radius:30px;
+background:var(--accent,#8d78a8);
+color:white;
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+}
+
+.ecom-action.secondary {
+background:transparent;
+color:var(--text,#333);
+border:1px solid var(--border,#ddd);
+}
+
+.ecom-grid {
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:16px;
+margin-top:20px;
+}
+
+.ecom-card {
+padding:21px;
+border:1px solid var(--border,#e8e3eb);
+border-radius:15px;
+}
+
+.ecom-card h3 {
+font-size:16px;
+margin-bottom:10px;
+}
+
+.ecom-card p {
+font-size:14px;
+line-height:1.8;
+color:var(--text-muted,#777);
+}
+
+.ecom-list {
+margin:14px 0 0;
+padding-left:22px;
+color:var(--text-muted,#777);
+}
+
+.ecom-list li {
+margin-bottom:10px;
+font-size:14px;
+line-height:1.8;
+}
+
+.ecom-steps {
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:16px;
+margin-top:22px;
+}
+
+.ecom-step {
+padding:20px;
+border:1px solid var(--border,#e8e3eb);
+border-radius:15px;
+}
+
+.ecom-step-number {
+display:block;
+margin-bottom:12px;
+font-family:'Playfair Display',serif;
+font-size:25px;
+color:var(--accent,#9b83b5);
+}
+
+.ecom-step h3 {
+font-size:16px;
+margin-bottom:9px;
+}
+
+.ecom-step p {
+font-size:13px;
+line-height:1.8;
+color:var(--text-muted,#777);
+}
+
+.ecom-sql-topics {
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:18px;
+}
+
+.ecom-sql-topics span {
+padding:9px 13px;
+border-radius:8px;
+background:rgba(155,131,181,.10);
+font-size:13px;
+}
+
+.ecom-source {
+overflow-wrap:anywhere;
+}
+
+@media(max-width:700px) {
+.ecom-page {
+padding:35px 18px 65px;
+}
+
+.ecom-grid,
+.ecom-steps {
+grid-template-columns:1fr;
+}
+
+.ecom-report-frame {
+height:520px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+<header class="site-header">
+<a class="brand" href="index.html">
+<span class="brand-mark">AS</span>
+<span>Arwa Salah<small>DATA ANALYST</small></span>
+</a>
+
+<button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+<nav class="nav">
+<a href="index.html">Home</a>
+<a class="active" href="projects.html">Projects & Skills</a>
+<a href="experience.html">Experience & Education</a>
+<a href="about.html">About</a>
+<a class="nav-contact" href="contact.html">Contact <span>↗</span></a>
+</nav>
+</header>
+
+<main class="ecom-page">
+
+<a class="ecom-back" href="projects.html">← Back to Projects</a>
+
+<!-- INTRO -->
+<section class="ecom-hero">
+
+<p class="eyebrow">SQL SERVER · POWER BI · E-COMMERCE ANALYTICS</p>
+
+<h1>Brazilian E-Commerce <em>Analytics Dashboard.</em></h1>
+
+<p class="ecom-intro">
+An end-to-end data analytics project built using the Brazilian E-Commerce Public Dataset by Olist. The project explores e-commerce performance from multiple perspectives, including sales and orders, customer and seller locations, delivery information, products, and customer reviews.
+
+Starting with relational data exploration and preparation in SQL Server, the project moves into interactive Power BI reporting to turn complex, multi-table data into business-focused insights.
+</p>
+
+<div class="ecom-tags">
+<span>SQL Server</span>
+<span>Power BI</span>
+<span>Data Cleaning</span>
+<span>Data Validation</span>
+<span>Data Transformation</span>
+<span>Geospatial Analysis</span>
+<span>Business Intelligence</span>
+</div>
+
+</section>
+
+<!-- VIDEO -->
+<section class="ecom-section">
+
+<div class="ecom-section-heading">
+<p class="eyebrow">PROJECT WALKTHROUGH</p>
+<h2>See the dashboard <em>in action.</em></h2>
+</div>
+
+<div class="ecom-panel">
+
+<video class="ecom-video" controls preload="metadata" playsinline>
+<source src="images/E-Commerce_Report.mp4" type="video/mp4">
+Your browser does not support HTML video.
+</video>
+
+<p class="ecom-note">
+Watch the walkthrough to explore the dashboard pages, sales and order trends, geographical analysis, and customer review insights.
+</p>
+
+</div>
+</section>
+
+<!-- LIVE REPORT -->
+<section class="ecom-section">
+
+<div class="ecom-section-heading">
+<p class="eyebrow">INTERACTIVE POWER BI REPORT</p>
+<h2>Explore the <em>live dashboard.</em></h2>
+</div>
+
+<div class="ecom-panel">
+
+<p>
+Explore the interactive report directly below. The dashboard is organized into three analytical pages: Sales & Orders, Location Analysis, and Customer Reviews.
+</p>
+
+<iframe
+class="ecom-report-frame"
+title="Brazilian E-Commerce Analytics Dashboard"
+src="https://app.powerbi.com/view?r=eyJrIjoiM2E2NTJkNTUtZTQxNy00MWM2LThhOTUtMDMyODRjOWFlNzg0IiwidCI6Ijc4NDllYjFiLTQ0YWMtNDYyYS05NWRiLWIzYTlhZGZiMmU3MiJ9"
+allowfullscreen="true"
+loading="lazy">
+</iframe>
+
+<div class="ecom-actions">
+<a class="ecom-action"
+href="https://app.powerbi.com/view?r=eyJrIjoiM2E2NTJkNTUtZTQxNy00MWM2LThhOTUtMDMyODRjOWFlNzg0IiwidCI6Ijc4NDllYjFiLTQ0YWMtNDYyYS05NWRiLWIzYTlhZGZiMmU3MiJ9"
+target="_blank"
+rel="noopener noreferrer">
+Open Report in Power BI ↗
+</a>
+
+<a class="ecom-action secondary"
+href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce"
+target="_blank"
+rel="noopener noreferrer">
+View Original Dataset ↗
+</a>
+</div>
+
+</div>
+</section>
+
+<!-- DATASET OVERVIEW -->
+<section class="ecom-section">
+
+<div class="ecom-section-heading">
+<p class="eyebrow">DATA SOURCE & BUSINESS CONTEXT</p>
+<h2>Understanding the <em>Olist dataset.</em></h2>
+</div>
+
+<div class="ecom-panel">
+
+<p>
+The project uses the Brazilian E-Commerce Public Dataset by Olist, downloaded from Kaggle. It contains approximately 100,000 orders made between 2016 and 2018 through Brazilian online marketplaces.
+</p>
+
+<p>
+The dataset consists of nine related CSV files covering different parts of the e-commerce process. These include customers, orders, order items, products, sellers, payments, reviews, geographical information, and product category translations.
+</p>
+
+<p>
+Olist connects small businesses with online marketplaces and supports their sales and order fulfillment processes. This makes the dataset useful for exploring the relationships between commercial performance, customers, sellers, logistics, and customer satisfaction.
+</p>
+
+<div class="ecom-note">
+The original dataset contains real commercial data that has been anonymized by Olist. The analysis in this project is based on the publicly available dataset, not on private company data.
+</div>
+
+<p class="ecom-source">
+<strong>Dataset source:</strong>
+<a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noopener noreferrer">
+Brazilian E-Commerce Public Dataset by Olist – Kaggle
+</a>
+</p>
+
+</div>
+</section>
+
+<!-- SQL WORK -->
+<section class="ecom-section">
+
+<div class="ecom-section-heading">
+<p class="eyebrow">SQL SERVER · DATA EXPLORATION & PREPARATION</p>
+<h2>Working with the data <em>before visualization.</em></h2>
+</div>
+
+<div class="ecom-panel">
+
+<p>
+The analysis started in SQL Server, where I explored the source tables, examined their structure, and worked on combining and preparing the data for further analysis.
+</p>
+
+<p>
+Since the dataset was distributed across multiple related tables, an important part of the work involved understanding the relationships between orders, customers, products, sellers, payments, reviews, and geographical information.
+</p>
+
+<div class="ecom-grid">
+
+<div class="ecom-card">
+<h3>Relational Data Exploration</h3>
+<p>
+Explored the available tables and their columns, reviewed the underlying structure, and used joins to combine information from different business entities.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Joins & Aggregations</h3>
+<p>
+Combined orders with order items, products, customers, sellers, and reviews. Aggregated order-level information such as item counts, product counts, seller counts, item totals, and shipping costs.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Payment Analysis</h3>
+<p>
+Used SQL PIVOT to transform payment types into separate columns and aggregated payment values by order to support comparisons between payments and order totals.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Views & Summary Tables</h3>
+<p>
+Created summarized order views and used Common Table Expressions to organize and investigate aggregated results and check the consistency of order-level summaries.
+</p>
+</div>
+
+</div>
+
+<div class="ecom-note">
+These queries were written in SQL Server and were used to explore, transform, summarize, and validate the source data before reporting.
+</div>
+
+</div>
+</section>
+
+<!-- DATA QUALITY -->
+<section class="ecom-section">
+
+<div class="ecom-section-heading">
+<p class="eyebrow">DATA CLEANING & VALIDATION</p>
+<h2>Improving data <em>reliability.</em></h2>
+</div>
+
+<div class="ecom-panel">
+
+<p>
+A significant part of the project involved investigating data quality issues, especially within the geographical information. The geolocation table contained multiple coordinate records for the same ZIP code prefix, and the data needed additional checks before being used for geographical reporting.
+</p>
+
+<div class="ecom-grid">
+
+<div class="ecom-card">
+<h3>Geographical Coordinate Validation</h3>
+<p>
+Checked latitude and longitude values against the geographical boundaries of Brazil to identify coordinates that were outside the expected country boundaries.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Coordinate Cleaning</h3>
+<p>
+Created cleaned latitude and longitude fields, using valid coordinates from matching ZIP code prefixes where possible, while leaving unmatched values as NULL.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>ZIP Code Consolidation</h3>
+<p>
+Used grouping and ranking logic with ROW_NUMBER() to select the most frequent geographical record for each ZIP code prefix and build a more consistent location reference table.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>City & State Validation</h3>
+<p>
+Compared geographical city and state information with an additional Brazilian cities reference dataset, investigated mismatches, and standardized city names to improve matching.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Data Reconciliation</h3>
+<p>
+Compared values from related datasets and investigated differences between order totals, payment amounts, and geographical attributes.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Missing Delivery Information</h3>
+<p>
+Investigated missing customer delivery dates and explored an estimated-date approach based on the average time between carrier and customer delivery dates.
+</p>
+</div>
+
+</div>
+
+<div class="ecom-note">
+Estimated delivery dates derived from missing values should be distinguished from observed delivery dates when interpreting delivery performance. The estimation approach is a data preparation assumption, not a record of an actual delivery event.
+</div>
+
+</div>
+</section>
+
+<!-- SQL TECHNIQUES -->
+<section class="ecom-section">
+
+<div class="ecom-section-heading">
+<p class="eyebrow">TECHNICAL IMPLEMENTATION</p>
+<h2>SQL techniques <em>applied.</em></h2>
+</div>
+
+<div class="ecom-panel">
+
+<p>
+The project involved a range of SQL techniques to investigate relationships, transform records, create analytical summaries, and improve data quality.
+</p>
+
+<div class="ecom-sql-topics">
+<span>SELECT & Filtering</span>
+<span>INNER JOIN</span>
+<span>LEFT JOIN</span>
+<span>FULL OUTER JOIN</span>
+<span>GROUP BY</span>
+<span>Aggregate Functions</span>
+<span>CTEs</span>
+<span>ROW_NUMBER()</span>
+<span>Window Functions</span>
+<span>PIVOT</span>
+<span>CREATE VIEW</span>
+<span>UPDATE</span>
+<span>CASE Statements</span>
+<span>TRY_CAST</span>
+<span>DATEDIFF</span>
+<span>DATEADD</span>
+<span>Data Reconciliation</span>
+</div>
+
+<div class="ecom-note">
+The SQL work focused on understanding the data structure, preparing reliable analytical outputs, and investigating data inconsistencies before using the information in Power BI.
+</div>
+
+</div>
+</section>
+
+<!-- POWER BI REPORT PAGES -->
+<section class="ecom-section">
+
+<div class="ecom-section-heading">
+<p class="eyebrow">POWER BI · REPORT DESIGN</p>
+<h2>Three perspectives on <em>e-commerce performance.</em></h2>
+</div>
+
+<div class="ecom-grid">
+
+<div class="ecom-card">
+<h3>01 · Sales & Orders</h3>
+<p>
+The first page provides an overview of overall e-commerce activity and sales performance.
+</p>
+<ul class="ecom-list">
+<li>Total number of orders and customers.</li>
+<li>Total sales and seller count.</li>
+<li>Order volume trends over time.</li>
+<li>Monthly comparison between order totals and shipping totals.</li>
+<li>Order delivery status distribution.</li>
+<li>Customer counts by year.</li>
+<li>Top 20 most ordered products.</li>
+<li>Number of products per order.</li>
+</ul>
+</div>
+
+<div class="ecom-card">
+<h3>02 · Location Analysis</h3>
+<p>
+The second page explores the geographical distribution of customers and sellers across Brazil.
+</p>
+<ul class="ecom-list">
+<li>Number of customer cities and customers.</li>
+<li>Number of seller cities and sellers.</li>
+<li>Total sales by customer city.</li>
+<li>Number of orders by seller city.</li>
+<li>Top 10 customer cities by total sales.</li>
+<li>Top 10 customer cities by average shipping price.</li>
+</ul>
+</div>
+
+<div class="ecom-card">
+<h3>03 · Customer Reviews</h3>
+<p>
+The third page focuses on customer satisfaction and review patterns.
+</p>
+<ul class="ecom-list">
+<li>Total reviews.</li>
+<li>Positive and negative review counts.</li>
+<li>Top 20 products with negative reviews.</li>
+<li>Top 20 products with positive reviews.</li>
+<li>Seller cities with the highest number of negative reviews.</li>
+<li>Seller cities with the highest number of positive reviews.</li>
+</ul>
+</div>
+
+<div class="ecom-card">
+<h3>Interactive Analysis</h3>
+<p>
+The report brings the different analytical views together in Power BI, making it easier to explore sales, geographical distribution, and customer feedback through visual summaries and detailed comparisons.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- BUSINESS VALUE -->
+<section class="ecom-section">
+
+<div class="ecom-section-heading">
+<p class="eyebrow">BUSINESS VALUE</p>
+<h2>Who can benefit from <em>this analysis?</em></h2>
+</div>
+
+<div class="ecom-panel">
+
+<p>
+By connecting sales, customer, seller, logistics, and review data, the dashboard provides different stakeholders with a more complete view of e-commerce operations. Each analytical page addresses a different business question.
+</p>
+
+<div class="ecom-grid">
+
+<div class="ecom-card">
+<h3>Business Owners & Management</h3>
+<p>
+Can monitor sales performance, order activity, customer distribution, and product demand to better understand overall business performance and identify areas that may require attention.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Sales & Commercial Teams</h3>
+<p>
+Can explore sales trends, compare customer cities, identify high-performing products, and understand where orders and sales are concentrated.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Logistics & Operations Teams</h3>
+<p>
+Can review delivery statuses, shipping costs, and geographical patterns to investigate delivery-related performance and understand differences across locations.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Customer Experience Teams</h3>
+<p>
+Can analyze positive and negative reviews, identify products associated with customer dissatisfaction, and investigate geographical patterns in customer feedback.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Product & Marketplace Teams</h3>
+<p>
+Can explore product demand, review patterns, and seller activity to support product assortment discussions and marketplace performance monitoring.
+</p>
+</div>
+
+<div class="ecom-card">
+<h3>Data & BI Teams</h3>
+<p>
+Can use the consolidated reporting approach to make complex relational data easier to explore, communicate, and reuse for business analysis.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- PROJECT OUTCOME -->
+<section class="ecom-section">
+
+<div class="ecom-section-heading">
+<p class="eyebrow">PROJECT OUTCOME</p>
+<h2>From relational datasets to <em>business insights.</em></h2>
+</div>
+
+<div class="ecom-panel">
+
+<p>
+This project demonstrates the complete analytical journey from raw relational data to an interactive business intelligence solution.
+</p>
+
+<p>
+By using SQL Server to explore, join, aggregate, clean, and validate the source data, I prepared the information for meaningful analysis. Power BI then brought the results together in a three-page dashboard covering commercial performance, geographical distribution, and customer satisfaction.
+</p>
+
+<p>
+The project highlights how combining SQL and data visualization can help transform large, disconnected datasets into structured information that supports better business understanding and more informed decisions.
+</p>
+
+</div>
+</section>
+
+<!-- SOURCE AND NAVIGATION -->
+<section class="ecom-section">
+
+<div class="ecom-panel">
+
+<p class="eyebrow">DATASET & PROJECT LINKS</p>
+
+<h2 style="font-family:'Playfair Display',serif; margin:10px 0 15px;">
+Explore the original source.
+</h2>
+
+<p>
+The dataset was obtained from Kaggle and originally published by Olist.
+</p>
+
+<div class="ecom-actions">
+<a class="ecom-action"
+href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce"
+target="_blank"
+rel="noopener noreferrer">
+Original Kaggle Dataset ↗
+</a>
+</div>
+
+<div class="ecom-note">
+The original dataset is subject to its published Kaggle license. Please refer to the dataset page for attribution and usage terms.
+</div>
+
+</div>
+
+<div class="ecom-panel" style="margin-top:18px;">
+
+<p class="eyebrow">EXPLORE MORE</p>
+
+<h2 style="font-family:'Playfair Display',serif; margin:10px 0 15px;">
+Interested in other projects?
+</h2>
+
+<p>Return to the portfolio to explore more analytics and reporting work.</p>
+
+<div class="ecom-actions">
+<a class="ecom-action" href="projects.html">Back to All Projects</a>
+<a class="ecom-action secondary" href="workforce-analytics.html">Explore Workforce Project ↗</a>
+<a class="ecom-action secondary" href="bim-report.html">Explore BIM Project ↗</a>
+<a class="ecom-action secondary" href="contact.html">Get in Touch ↗</a>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+<span>© <span id="year"></span> Arwa Salah</span>
+<span>Data Analyst · Power BI · SQL · Excel</span>
+<a href="contact.html">Get in touch ↗</a>
+</footer>
+
+</body>
+</html>
