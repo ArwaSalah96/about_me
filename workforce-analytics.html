@@ -1,0 +1,606 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Workforce Analytics Dashboard - An HR analytics and Power BI project by Arwa Salah.">
+<title>Workforce Analytics Dashboard | Arwa Salah</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
+
+<style>
+.workforce-page {
+max-width: 1120px;
+margin: 0 auto;
+padding: 55px 24px 90px;
+}
+
+.workforce-back {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 35px;
+color: var(--text-muted, #777);
+text-decoration: none;
+font-size: 14px;
+}
+
+.workforce-back:hover {
+color: var(--accent, #8d78a8);
+}
+
+.workforce-hero {
+margin-bottom: 38px;
+}
+
+.workforce-hero h1 {
+max-width: 900px;
+margin: 12px 0 18px;
+font-family: 'Playfair Display', serif;
+font-size: clamp(36px, 6vw, 60px);
+line-height: 1.12;
+}
+
+.workforce-hero h1 em {
+color: var(--accent, #9b83b5);
+font-weight: 600;
+}
+
+.workforce-intro {
+max-width: 850px;
+font-size: 17px;
+line-height: 1.85;
+color: var(--text-muted, #777);
+}
+
+.workforce-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 9px;
+margin-top: 24px;
+}
+
+.workforce-tags span {
+padding: 8px 13px;
+border: 1px solid var(--border, #e8e3eb);
+border-radius: 30px;
+font-size: 12px;
+}
+
+.workforce-section {
+margin-top: 55px;
+}
+
+.workforce-section-heading {
+margin-bottom: 20px;
+}
+
+.workforce-section-heading .eyebrow {
+margin-bottom: 8px;
+}
+
+.workforce-section-heading h2 {
+font-family: 'Playfair Display', serif;
+font-size: clamp(26px, 4vw, 36px);
+}
+
+.workforce-section-heading h2 em {
+color: var(--accent, #9b83b5);
+}
+
+.workforce-panel {
+padding: clamp(18px, 3vw, 30px);
+border: 1px solid var(--border, #e8e3eb);
+border-radius: 18px;
+background: var(--surface, rgba(255,255,255,.55));
+}
+
+.workforce-panel p {
+font-size: 15px;
+line-height: 1.9;
+color: var(--text-muted, #777);
+}
+
+.workforce-video {
+width: 100%;
+display: block;
+border-radius: 14px;
+background: #17151b;
+max-height: 680px;
+}
+
+.workforce-note {
+margin-top: 13px;
+padding: 15px 18px;
+border-left: 3px solid var(--accent, #9b83b5);
+border-radius: 5px 12px 12px 5px;
+background: rgba(155,131,181,.08);
+font-size: 13px;
+line-height: 1.8;
+color: var(--text-muted, #777);
+}
+
+.workforce-report-frame {
+width: 100%;
+height: 680px;
+border: 0;
+border-radius: 14px;
+background: #f5f2f7;
+}
+
+.workforce-actions {
+display: flex;
+flex-wrap: wrap;
+gap: 14px;
+margin-top: 18px;
+}
+
+.workforce-action {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 12px 19px;
+border-radius: 30px;
+background: var(--accent, #8d78a8);
+color: white;
+text-decoration: none;
+font-size: 14px;
+font-weight: 600;
+}
+
+.workforce-action.secondary {
+background: transparent;
+color: var(--text, #333);
+border: 1px solid var(--border, #ddd);
+}
+
+.workforce-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 16px;
+margin-top: 20px;
+}
+
+.workforce-info-card {
+padding: 21px;
+border: 1px solid var(--border, #e8e3eb);
+border-radius: 15px;
+}
+
+.workforce-info-card h3 {
+font-size: 16px;
+margin-bottom: 10px;
+}
+
+.workforce-info-card p {
+font-size: 14px;
+line-height: 1.8;
+color: var(--text-muted, #777);
+}
+
+.workforce-steps {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 16px;
+margin-top: 22px;
+}
+
+.workforce-step {
+padding: 20px;
+border: 1px solid var(--border, #e8e3eb);
+border-radius: 15px;
+}
+
+.workforce-step-number {
+display: block;
+margin-bottom: 12px;
+font-family: 'Playfair Display', serif;
+font-size: 25px;
+color: var(--accent, #9b83b5);
+}
+
+.workforce-step h3 {
+font-size: 16px;
+margin-bottom: 9px;
+}
+
+.workforce-step p {
+font-size: 13px;
+line-height: 1.8;
+color: var(--text-muted, #777);
+}
+
+.workforce-list {
+margin: 14px 0 0;
+padding-left: 22px;
+color: var(--text-muted, #777);
+}
+
+.workforce-list li {
+margin-bottom: 10px;
+font-size: 14px;
+line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+.workforce-page {
+padding: 35px 18px 65px;
+}
+
+.workforce-grid,
+.workforce-steps {
+grid-template-columns: 1fr;
+}
+
+.workforce-report-frame {
+height: 520px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+<header class="site-header">
+<a class="brand" href="index.html">
+<span class="brand-mark">AS</span>
+<span>Arwa Salah<small>DATA ANALYST</small></span>
+</a>
+
+<button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+<nav class="nav">
+<a href="index.html">Home</a>
+<a class="active" href="projects.html">Projects & Skills</a>
+<a href="experience.html">Experience & Education</a>
+<a href="about.html">About</a>
+<a class="nav-contact" href="contact.html">Contact <span>↗</span></a>
+</nav>
+</header>
+
+<main class="workforce-page">
+
+<a class="workforce-back" href="projects.html">← Back to Projects</a>
+
+<!-- PROJECT INTRO -->
+<section class="workforce-hero">
+
+<p class="eyebrow">POWER BI · HR ANALYTICS · WORKFORCE REPORTING</p>
+
+<h1>Workforce Analytics <em>Dashboard.</em></h1>
+
+<p class="workforce-intro">
+An interactive HR analytics dashboard designed to bring employee compensation, bonuses, deductions, and leave information together in one reporting solution. The project covers two years of workforce data (2023–2024), providing a consolidated view of employee-related financial information and trends.
+</p>
+
+<div class="workforce-tags">
+<span>Power BI</span>
+<span>Microsoft Excel</span>
+<span>Power Query</span>
+<span>Data Cleaning</span>
+<span>HR Analytics</span>
+<span>Data Validation</span>
+</div>
+
+</section>
+
+<!-- VIDEO -->
+<section class="workforce-section">
+
+<div class="workforce-section-heading">
+<p class="eyebrow">PROJECT WALKTHROUGH</p>
+<h2>See the dashboard <em>in action.</em></h2>
+</div>
+
+<div class="workforce-panel">
+
+<video class="workforce-video" controls preload="metadata" playsinline>
+<source src="images/HR_Report.mp4" type="video/mp4">
+Your browser does not support HTML video.
+</video>
+
+<p class="workforce-note">
+Watch the walkthrough to explore the dashboard pages, employee compensation details, and workforce trends.
+</p>
+
+</div>
+</section>
+
+<!-- LIVE REPORT -->
+<section class="workforce-section">
+
+<div class="workforce-section-heading">
+<p class="eyebrow">INTERACTIVE POWER BI REPORT</p>
+<h2>Explore the <em>live dashboard.</em></h2>
+</div>
+
+<div class="workforce-panel">
+
+<p>
+Explore the interactive report directly below. It includes employee financial information and visual analysis of compensation and leave-related trends.
+</p>
+
+<iframe
+class="workforce-report-frame"
+title="Workforce Analytics Dashboard"
+src="https://app.powerbi.com/view?r=eyJrIjoiNmU1MjMxNGQtZTUxOC00NTE3LTljZGYtZTJmMWEyNTFiMjZmIiwidCI6Ijc4NDllYjFiLTQ0YWMtNDYyYS05NWRiLWIzYTlhZGZiMmU3MiJ9"
+allowfullscreen="true"
+loading="lazy">
+</iframe>
+
+<div class="workforce-actions">
+<a class="workforce-action"
+href="https://app.powerbi.com/view?r=eyJrIjoiNmU1MjMxNGQtZTUxOC00NTE3LTljZGYtZTJmMWEyNTFiMjZmIiwidCI6Ijc4NDllYjFiLTQ0YWMtNDYyYS05NWRiLWIzYTlhZGZiMmU3MiJ9"
+target="_blank"
+rel="noopener noreferrer">
+Open Report in Power BI ↗
+</a>
+</div>
+
+</div>
+</section>
+
+<!-- DATASET AND BUSINESS CONTEXT -->
+<section class="workforce-section">
+
+<div class="workforce-section-heading">
+<p class="eyebrow">PROJECT OVERVIEW</p>
+<h2>Understanding the <em>workforce data.</em></h2>
+</div>
+
+<div class="workforce-panel">
+
+<p>
+This project uses a fictional dataset representing employees of Square Architecture Solutions, a fictional company. The dataset covers the years 2023 and 2024 and was created to demonstrate how employee-related financial and leave information can be consolidated into a structured HR reporting solution.
+</p>
+
+<p>
+The dashboard brings together employee compensation information from different sources, allowing users to review employee-level figures as well as overall trends across the reporting period.
+</p>
+
+<div class="workforce-note">
+All company names and employee information used in this project are fictional and do not represent real individuals or an actual organization.
+</div>
+
+</div>
+</section>
+
+<!-- REPORT CONTENT -->
+<section class="workforce-section">
+
+<div class="workforce-section-heading">
+<p class="eyebrow">REPORT STRUCTURE</p>
+<h2>What does the dashboard <em>cover?</em></h2>
+</div>
+
+<div class="workforce-grid">
+
+<div class="workforce-info-card">
+<h3>01 · Employee Compensation Overview</h3>
+<p>
+The first report page provides a consolidated view of employee financial information, including:
+</p>
+<ul class="workforce-list">
+<li>Monthly salaries and hourly rates.</li>
+<li>Daily, weekly, monthly, and yearly compensation figures.</li>
+<li>Bonuses and their breakdown.</li>
+<li>Deductions and related amounts.</li>
+<li>Regular leave payments, national holiday leave payments, and maternity leave payments where applicable.</li>
+</ul>
+</div>
+
+<div class="workforce-info-card">
+<h3>02 · Compensation & Leave Analysis</h3>
+<p>
+The second report page uses charts to explore changes and comparisons over time, including:
+</p>
+<ul class="workforce-list">
+<li>Changes in each employee's hourly rate throughout the period.</li>
+<li>Annual leave utilization by employee.</li>
+<li>Employees receiving the highest bonuses.</li>
+<li>Employees with the highest deductions.</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- DATA SOURCES AND PREPARATION -->
+<section class="workforce-section">
+
+<div class="workforce-section-heading">
+<p class="eyebrow">DATA PREPARATION</p>
+<h2>Bringing scattered data <em>together.</em></h2>
+</div>
+
+<div class="workforce-panel">
+
+<p>
+One of the main challenges in this project was preparing the data before it could be used reliably in the report. The information was collected from multiple Excel and CSV files, which required considerable effort to consolidate and review.
+</p>
+
+<p>
+I used Microsoft Excel and Power Query to clean, organize, and prepare the data. The preparation process involved:
+</p>
+
+<div class="workforce-steps">
+
+<div class="workforce-step">
+<span class="workforce-step-number">01</span>
+<h3>Data Collection</h3>
+<p>Gathering employee-related information from multiple Excel spreadsheets and CSV files.</p>
+</div>
+
+<div class="workforce-step">
+<span class="workforce-step-number">02</span>
+<h3>Data Cleaning</h3>
+<p>Using Excel and Power Query to organize the data, address inconsistencies, and prepare it for analysis.</p>
+</div>
+
+<div class="workforce-step">
+<span class="workforce-step-number">03</span>
+<h3>Validation & Reconciliation</h3>
+<p>Comparing figures across different sources and checking the information against additional references to improve accuracy and consistency.</p>
+</div>
+
+</div>
+
+<div class="workforce-note">
+Reliable reporting starts with reliable data. Data preparation and validation were essential parts of this project, not just preliminary technical steps.
+</div>
+
+</div>
+</section>
+
+<!-- ROLE OF DATA ANALYSIS -->
+<section class="workforce-section">
+
+<div class="workforce-section-heading">
+<p class="eyebrow">THE ROLE OF DATA ANALYSIS</p>
+<h2>Turning employee records into <em>meaningful insights.</em></h2>
+</div>
+
+<div class="workforce-panel">
+
+<p>
+Employee information is often spread across different files and records. Data analysis helps transform these separate records into a consolidated view that makes financial patterns, changes, and comparisons easier to understand.
+</p>
+
+<div class="workforce-grid">
+
+<div class="workforce-info-card">
+<h3>Data Consolidation</h3>
+<p>Combining information from different sources gives users a more complete view of employee-related financial data.</p>
+</div>
+
+<div class="workforce-info-card">
+<h3>Trend Analysis</h3>
+<p>Tracking hourly rate changes, bonuses, deductions, and leave utilization helps reveal how workforce figures change over time.</p>
+</div>
+
+<div class="workforce-info-card">
+<h3>Data Accuracy</h3>
+<p>Cleaning and reconciling information helps reduce inconsistencies and provides a more dependable foundation for reporting.</p>
+</div>
+
+<div class="workforce-info-card">
+<h3>Clearer Comparisons</h3>
+<p>Visual reports make it easier to compare employees, review compensation components, and identify notable differences.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- BUSINESS VALUE -->
+<section class="workforce-section">
+
+<div class="workforce-section-heading">
+<p class="eyebrow">BUSINESS VALUE</p>
+<h2>How can HR and managers <em>benefit?</em></h2>
+</div>
+
+<div class="workforce-panel">
+
+<p>
+A consolidated workforce dashboard can support HR teams and managers by making employee-related financial information easier to review, monitor, and communicate. Instead of manually collecting figures from multiple files, users can access a structured reporting view.
+</p>
+
+<div class="workforce-grid">
+
+<div class="workforce-info-card">
+<h3>For HR Teams</h3>
+<p>
+The dashboard supports HR teams in reviewing employee compensation records, monitoring leave utilization, and comparing bonuses and deductions. It also provides a clearer overview of employee-related financial information across different periods.
+</p>
+</div>
+
+<div class="workforce-info-card">
+<h3>For Managers</h3>
+<p>
+Managers can use the dashboard to understand workforce cost patterns, review changes in hourly rates, and gain visibility into compensation-related trends that may support planning and management discussions.
+</p>
+</div>
+
+<div class="workforce-info-card">
+<h3>For Finance Teams</h3>
+<p>
+The consolidated view can make it easier to review compensation components, compare figures across periods, and coordinate with HR when reviewing employee-related financial information.
+</p>
+</div>
+
+<div class="workforce-info-card">
+<h3>For Decision-Makers</h3>
+<p>
+Visual summaries and employee-level details provide a more accessible basis for investigating unusual figures, understanding workforce cost patterns, and supporting data-informed decisions.
+</p>
+</div>
+
+</div>
+
+<div class="workforce-note">
+The dashboard is a reporting and analysis tool. It supports review and decision-making, but does not replace payroll processing, HR systems, or formal financial approval procedures.
+</div>
+
+</div>
+</section>
+
+<!-- PROJECT OUTCOME -->
+<section class="workforce-section">
+
+<div class="workforce-section-heading">
+<p class="eyebrow">PROJECT VALUE</p>
+<h2>From scattered spreadsheets to <em>structured HR reporting.</em></h2>
+</div>
+
+<div class="workforce-panel">
+
+<p>
+This project demonstrates how data preparation, validation, and business intelligence can turn scattered employee records into a consolidated and interactive workforce analytics solution.
+</p>
+
+<p>
+By bringing compensation and leave information together, the dashboard provides a clearer view of employee-related financial data across 2023 and 2024. It makes detailed information easier to explore while giving HR teams, managers, and other relevant stakeholders a more accessible way to review workforce trends.
+</p>
+
+</div>
+</section>
+
+<!-- NAVIGATION -->
+<section class="workforce-section">
+
+<div class="workforce-panel">
+<p class="eyebrow">EXPLORE MORE</p>
+
+<h2 style="font-family:'Playfair Display',serif; margin:10px 0 15px;">
+Interested in other projects?
+</h2>
+
+<p>Return to the portfolio to explore more analytics and reporting work.</p>
+
+<div class="workforce-actions">
+<a class="workforce-action" href="projects.html">Back to All Projects</a>
+<a class="workforce-action secondary" href="bim-report.html">Explore BIM Project ↗</a>
+<a class="workforce-action secondary" href="contact.html">Get in Touch ↗</a>
+</div>
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+<span>© <span id="year"></span> Arwa Salah</span>
+<span>Data Analyst · Power BI · SQL · Excel</span>
+<a href="contact.html">Get in touch ↗</a>
+</footer>
+
+</body>
+</html>
