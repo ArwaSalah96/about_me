@@ -1,0 +1,536 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="BIM 3D Model Detail Report - A Power BI project by Arwa Salah exploring BIM model data and 3D visualization.">
+<title>BIM 3D Model Detail Report | Arwa Salah</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
+
+<style>
+.bim-page {
+max-width: 1120px;
+margin: 0 auto;
+padding: 55px 24px 90px;
+}
+
+.bim-back {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 35px;
+color: var(--text-muted, #777);
+text-decoration: none;
+font-size: 14px;
+}
+
+.bim-back:hover {
+color: var(--accent, #8d78a8);
+}
+
+.bim-hero {
+margin-bottom: 38px;
+}
+
+.bim-hero h1 {
+max-width: 850px;
+margin: 12px 0 18px;
+font-family: 'Playfair Display', serif;
+font-size: clamp(36px, 6vw, 60px);
+line-height: 1.12;
+}
+
+.bim-hero h1 em {
+color: var(--accent, #9b83b5);
+font-weight: 600;
+}
+
+.bim-intro {
+max-width: 820px;
+font-size: 17px;
+line-height: 1.85;
+color: var(--text-muted, #777);
+}
+
+.bim-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 9px;
+margin-top: 24px;
+}
+
+.bim-tags span {
+padding: 8px 13px;
+border: 1px solid var(--border, #e8e3eb);
+border-radius: 30px;
+font-size: 12px;
+}
+
+.bim-section {
+margin-top: 55px;
+}
+
+.bim-section-heading {
+margin-bottom: 20px;
+}
+
+.bim-section-heading .eyebrow {
+margin-bottom: 8px;
+}
+
+.bim-section-heading h2 {
+font-family: 'Playfair Display', serif;
+font-size: clamp(26px, 4vw, 36px);
+}
+
+.bim-section-heading h2 em {
+color: var(--accent, #9b83b5);
+}
+
+.bim-panel {
+padding: clamp(18px, 3vw, 30px);
+border: 1px solid var(--border, #e8e3eb);
+border-radius: 18px;
+background: var(--surface, rgba(255,255,255,.55));
+}
+
+.bim-panel p {
+font-size: 15px;
+line-height: 1.9;
+color: var(--text-muted, #777);
+}
+
+.bim-video {
+width: 100%;
+display: block;
+border-radius: 14px;
+background: #17151b;
+max-height: 680px;
+}
+
+.bim-video-note {
+margin-top: 12px;
+font-size: 13px;
+line-height: 1.7;
+color: var(--text-muted, #777);
+}
+
+.bim-report-frame {
+width: 100%;
+height: 680px;
+border: 0;
+border-radius: 14px;
+background: #f5f2f7;
+}
+
+.bim-report-actions {
+display: flex;
+flex-wrap: wrap;
+gap: 14px;
+margin-top: 18px;
+}
+
+.bim-action {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 12px 19px;
+border-radius: 30px;
+background: var(--accent, #8d78a8);
+color: white;
+text-decoration: none;
+font-size: 14px;
+font-weight: 600;
+}
+
+.bim-action.secondary {
+background: transparent;
+color: var(--text, #333);
+border: 1px solid var(--border, #ddd);
+}
+
+.bim-steps {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 16px;
+margin-top: 22px;
+}
+
+.bim-step {
+padding: 20px;
+border: 1px solid var(--border, #e8e3eb);
+border-radius: 15px;
+}
+
+.bim-step-number {
+display: block;
+margin-bottom: 12px;
+font-family: 'Playfair Display', serif;
+font-size: 25px;
+color: var(--accent, #9b83b5);
+}
+
+.bim-step h3 {
+font-size: 16px;
+margin-bottom: 9px;
+}
+
+.bim-step p {
+font-size: 13px;
+line-height: 1.8;
+color: var(--text-muted, #777);
+}
+
+.bim-benefits {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 16px;
+margin-top: 20px;
+}
+
+.bim-benefit {
+padding: 20px;
+border: 1px solid var(--border, #e8e3eb);
+border-radius: 15px;
+}
+
+.bim-benefit h3 {
+margin-bottom: 9px;
+font-size: 16px;
+}
+
+.bim-benefit p {
+font-size: 14px;
+line-height: 1.8;
+color: var(--text-muted, #777);
+}
+
+.bim-note {
+padding: 17px 20px;
+margin-top: 20px;
+border-left: 3px solid var(--accent, #9b83b5);
+border-radius: 5px 12px 12px 5px;
+background: rgba(155,131,181,.08);
+font-size: 13px;
+line-height: 1.8;
+color: var(--text-muted, #777);
+}
+
+@media (max-width: 700px) {
+.bim-page {
+padding: 35px 18px 65px;
+}
+
+.bim-steps,
+.bim-benefits {
+grid-template-columns: 1fr;
+}
+
+.bim-report-frame {
+height: 520px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+<header class="site-header">
+<a class="brand" href="index.html">
+<span class="brand-mark">AS</span>
+<span>Arwa Salah<small>DATA ANALYST</small></span>
+</a>
+
+<button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+<nav class="nav">
+<a href="index.html">Home</a>
+<a class="active" href="projects.html">Projects & Skills</a>
+<a href="experience.html">Experience & Education</a>
+<a href="about.html">About</a>
+<a class="nav-contact" href="contact.html">Contact <span>↗</span></a>
+</nav>
+</header>
+
+<main class="bim-page">
+
+<a class="bim-back" href="projects.html">← Back to Projects</a>
+
+<section class="bim-hero">
+<p class="eyebrow">POWER BI · BIM ANALYTICS · 3D VISUALIZATION</p>
+
+<h1>BIM 3D Model <em>Detail Report.</em></h1>
+
+<p class="bim-intro">
+An interactive reporting solution that connects 3D Building Information Modeling (BIM) data with analytical reporting. The project brings architectural, structural, and plumbing model information together, allowing users to explore model elements, their parameters, and quantities through an interactive Power BI experience.
+</p>
+
+<div class="bim-tags">
+<span>Power BI</span>
+<span>Autodesk Data Exchange</span>
+<span>Autodesk Construction Cloud</span>
+<span>BIM Analytics</span>
+<span>3D Visualization</span>
+</div>
+</section>
+
+<!-- VIDEO WALKTHROUGH -->
+<section class="bim-section">
+<div class="bim-section-heading">
+<p class="eyebrow">PROJECT WALKTHROUGH</p>
+<h2>See the report <em>in action.</em></h2>
+</div>
+
+<div class="bim-panel">
+<video class="bim-video" controls preload="metadata" playsinline>
+<source src="images/BIM%20Report.mp4" type="video/mp4">
+Your browser does not support HTML video.
+</video>
+
+<p class="bim-video-note">
+Watch the walkthrough to explore the report interface, interact with the 3D model, and see how model information is presented.
+</p>
+</div>
+</section>
+
+<!-- LIVE REPORT -->
+<section class="bim-section">
+<div class="bim-section-heading">
+<p class="eyebrow">INTERACTIVE REPORT</p>
+<h2>Explore the <em>live report.</em></h2>
+</div>
+
+<div class="bim-panel">
+<p>
+The embedded report allows you to interact with the published Power BI experience directly on this page.
+</p>
+
+<iframe
+class="bim-report-frame"
+title="BIM 3D Model Detail Report"
+src="https://app.powerbi.com/view?r=eyJrIjoiZTRiMzE2YTMtOWZmOS00MmU3LThjNDktNWVmMTk2YjU2MjQxIiwidCI6Ijc4NDllYjFiLTQ0YWMtNDYyYS05NWRiLWIzYTlhZGZiMmU3MiJ9"
+allowfullscreen="true"
+loading="lazy">
+</iframe>
+
+<p class="bim-video-note">
+The 3D model may take a few moments to load. Please allow some time for the visualization to appear.
+</p>
+
+<div class="bim-report-actions">
+<a class="bim-action"
+href="https://app.powerbi.com/view?r=eyJrIjoiZTRiMzE2YTMtOWZmOS00MmU3LThjNDktNWVmMTk2YjU2MjQxIiwidCI6Ijc4NDllYjFiLTQ0YWMtNDYyYS05NWRiLWIzYTlhZGZiMmU3MiJ9"
+target="_blank"
+rel="noopener noreferrer">
+Open Report in Power BI ↗
+</a>
+</div>
+</div>
+</section>
+
+<!-- PROJECT CONTEXT -->
+<section class="bim-section">
+<div class="bim-section-heading">
+<p class="eyebrow">THE BUSINESS CONTEXT</p>
+<h2>Understanding the <em>BIM data.</em></h2>
+</div>
+
+<div class="bim-panel">
+<p>
+Building Information Modeling (BIM) creates a detailed digital representation of a building. A BIM model contains more than 3D geometry: its elements can also carry information such as categories, properties, parameters, and quantities.
+</p>
+
+<p>
+For this project, the school model brings together three key disciplines: Architecture, Structure, and Plumbing. Instead of looking at each discipline's information in isolation, the report provides a connected analytical view of model elements and their associated data.
+</p>
+
+<p>
+This makes model information easier to explore and review, helping BIM professionals and project stakeholders understand what is included in the model and access relevant element details.
+</p>
+</div>
+</section>
+
+<!-- DATA EXCHANGE -->
+<section class="bim-section">
+<div class="bim-section-heading">
+<p class="eyebrow">DATA EXCHANGE</p>
+<h2>How does <em>Data Exchange</em> fit in?</h2>
+</div>
+
+<div class="bim-panel">
+<p>
+Autodesk Data Exchange is a way to share selected BIM model information between supported applications and workflows, without always needing to transfer an entire authoring model. It can make relevant model elements and their associated information available to other tools and teams.
+</p>
+
+<p>
+In an Autodesk Construction Cloud (ACC) environment, project teams can work with model information in a shared cloud-based project environment. Data Exchange can support more focused collaboration by making the required model data available to downstream workflows, depending on the project's setup, supported integrations, and access permissions.
+</p>
+
+<p>
+In this project, the Data Exchange file was used as a source of BIM model information for the reporting experience. The information from the architectural, structural, and plumbing disciplines supports the report's 3D model exploration and element-level details.
+</p>
+
+<div class="bim-note">
+Data Exchange does not automatically grant every team or client access to every model. Sharing depends on the exchange configuration, supported tools, and the permissions assigned within the project environment.
+</div>
+</div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="bim-section">
+<div class="bim-section-heading">
+<p class="eyebrow">ANALYTICS WORKFLOW</p>
+<h2>From model data to <em>useful insights.</em></h2>
+</div>
+
+<div class="bim-steps">
+
+<div class="bim-step">
+<span class="bim-step-number">01</span>
+<h3>Model Information</h3>
+<p>Relevant information from the architectural, structural, and plumbing BIM models is made available through the Data Exchange workflow.</p>
+</div>
+
+<div class="bim-step">
+<span class="bim-step-number">02</span>
+<h3>Data Analysis</h3>
+<p>Model information is organized and presented in a way that makes elements, parameters, properties, and quantities easier to explore and review.</p>
+</div>
+
+<div class="bim-step">
+<span class="bim-step-number">03</span>
+<h3>Interactive Reporting</h3>
+<p>Power BI brings the information into an interactive report, connecting the 3D model experience with analytical details for users.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ROLE OF DATA ANALYSIS -->
+<section class="bim-section">
+<div class="bim-section-heading">
+<p class="eyebrow">THE ROLE OF DATA ANALYSIS</p>
+<h2>Why does data analysis <em>matter in BIM?</em></h2>
+</div>
+
+<div class="bim-panel">
+<p>
+A BIM model contains a large amount of structured information. Data analysis helps turn that information into something easier to navigate, compare, review, and use.
+</p>
+
+<div class="bim-benefits">
+
+<div class="bim-benefit">
+<h3>Better visibility</h3>
+<p>Users can explore model elements and access their associated information instead of relying only on visual inspection of the 3D model.</p>
+</div>
+
+<div class="bim-benefit">
+<h3>Quantity awareness</h3>
+<p>Relevant quantities and element details become easier to review, supporting model understanding and project discussions.</p>
+</div>
+
+<div class="bim-benefit">
+<h3>Connected disciplines</h3>
+<p>Bringing Architecture, Structure, and Plumbing information into one reporting experience gives users a more connected view of the model.</p>
+</div>
+
+<div class="bim-benefit">
+<h3>More informed decisions</h3>
+<p>Organized information can help project teams investigate details, identify what needs attention, and make discussions more data-informed.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- VALUE FOR BIM TEAMS AND CLIENTS -->
+<section class="bim-section">
+<div class="bim-section-heading">
+<p class="eyebrow">WHO BENEFITS?</p>
+<h2>Supporting BIM teams and <em>clients.</em></h2>
+</div>
+
+<div class="bim-panel">
+<p>
+A reporting layer can make BIM information more accessible to different stakeholders involved in a project. The exact information each person can see depends on their role and project permissions.
+</p>
+
+<div class="bim-benefits">
+
+<div class="bim-benefit">
+<h3>BIM Modelers</h3>
+<p>Can explore model elements and review their properties and related information in a more accessible reporting interface.</p>
+</div>
+
+<div class="bim-benefit">
+<h3>BIM Coordinators</h3>
+<p>Can use organized model information to support coordination discussions and review information across different disciplines.</p>
+</div>
+
+<div class="bim-benefit">
+<h3>Project Managers</h3>
+<p>Can benefit from clearer access to model details and quantities when following project information and discussing progress or requirements.</p>
+</div>
+
+<div class="bim-benefit">
+<h3>Clients and Other Stakeholders</h3>
+<p>Where access is authorized, clients and stakeholders can use a simplified reporting view to understand relevant model information without needing to work directly inside every BIM authoring tool.</p>
+</div>
+
+</div>
+
+<div class="bim-note">
+The purpose of the report is not to replace BIM authoring or coordination software. It adds an analytical and reporting layer that helps make model information easier to understand and communicate.
+</div>
+</div>
+</section>
+
+<!-- PROJECT VALUE -->
+<section class="bim-section">
+<div class="bim-section-heading">
+<p class="eyebrow">PROJECT VALUE</p>
+<h2>Turning model information into <em>accessible reporting.</em></h2>
+</div>
+
+<div class="bim-panel">
+<p>
+This project demonstrates how data analytics and business intelligence can extend the value of BIM information beyond 3D visualization.
+</p>
+
+<p>
+By connecting model data with Power BI reporting, the solution creates an interactive way to explore model elements, properties, and quantities. It helps bridge the gap between detailed technical model information and the practical information that engineers, project teams, and authorized clients may need during a project.
+</p>
+</div>
+</section>
+
+<section class="bim-section">
+<div class="bim-panel">
+<p class="eyebrow">EXPLORE MORE</p>
+<h2 style="font-family:'Playfair Display',serif; margin:10px 0 15px;">Interested in other projects?</h2>
+<p>Return to the portfolio to explore more analytics and reporting work.</p>
+<div class="bim-report-actions">
+<a class="bim-action" href="projects.html">Back to All Projects</a>
+<a class="bim-action secondary" href="contact.html">Get in Touch ↗</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+<span>© <span id="year"></span> Arwa Salah</span>
+<span>Data Analyst · Power BI · SQL · Excel</span>
+<a href="contact.html">Get in touch ↗</a>
+</footer>
+
+</body>
+</html>
